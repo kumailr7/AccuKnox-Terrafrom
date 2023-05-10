@@ -144,8 +144,8 @@ resource "aws_instance" "instance-1" {
 # 1. Provider For Region US-WEST-2
 
 provider "aws" {
-  alias = "us-west-2"
-  region = "us-west-2"
+  alias = "us-east-2"
+  region = "us-east-2"
   access_key = "test"
   secret_key = "test"
   s3_use_path_style = false
@@ -202,7 +202,7 @@ resource "aws_route_table" "qa-route-table" {
 resource "aws_subnet" "public_subnet-2" {
   vpc_id = aws_vpc.qa_vpc.id
   cidr_block        = "10.0.1.0/24"
-  availability_zone = "us-west-2a"
+  availability_zone = "us-east-2a"
 }
 
 # 6. Associate subnet with Route Table 
@@ -273,8 +273,8 @@ resource "aws_instance" "instance-2" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "Hello From US-WEST-2 Instance"
+    Name = "Hello From US-EAST-2 Instance"
   }
 
-  provider = aws.us-west-2
+  provider = aws.us-east-2
 }
