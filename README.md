@@ -2,9 +2,9 @@
 This guide will walk you through the steps to configure two EC2 instances in two different AWS regions using Terraform and running it on LocalStack.
 
 ## Prerequisites
-LocalStack setup and running on your machine.
-Terraform installed on your machine.
-AWS CLI installed and configured on your machine 
+- LocalStack setup and running on your machine.
+- Terraform installed on your machine.
+- AWS CLI installed and configured on your machine 
 
 ## Step 1: Review of Main.tf file
 
