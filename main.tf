@@ -141,7 +141,7 @@ resource "aws_instance" "instance-1" {
 
 ##### Terraform File For Second Region Instance #######
 
-# 1. Provider For Region US-WEST-2
+# 1. Provider For Region US-EAST-2
 
 provider "aws" {
   alias = "us-east-2"
@@ -161,7 +161,7 @@ provider "aws" {
 
 }
 
-# 2. Creating VPC For US-WEST-2
+# 2. Creating VPC For US-EAST-2
 resource "aws_vpc" "qa_vpc" {
   cidr_block       = "10.0.0.0/16"
   instance_tenancy = "default"
@@ -198,7 +198,7 @@ resource "aws_route_table" "qa-route-table" {
 }
 
 
-# 5. Creating a Public Subnet For US-WEST-2
+# 5. Creating a Public Subnet For US-EAST-2
 resource "aws_subnet" "public_subnet-2" {
   vpc_id = aws_vpc.qa_vpc.id
   cidr_block        = "10.0.1.0/24"
@@ -267,7 +267,7 @@ resource "aws_eip" "two" {
   depends_on                = [aws_internet_gateway.gw-2]
 }
 
-# 10. Create the instance in US-WEST-2
+# 10. Create the instance in US-EAST-2
 resource "aws_instance" "instance-2" {
   ami           = "ami-0d57c0143330e1fa7"
   instance_type = "t2.micro"
